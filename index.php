@@ -1,4 +1,4 @@
 <?php
-header("Location: 192.168.1.2/covid/umum");
+header("Location: http://192.168.1.2/covid/umum");
 exit(0);
 ?>
