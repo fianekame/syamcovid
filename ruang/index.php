@@ -40,4 +40,4 @@ if(file_exists($controller)) {
         call_user_func_array(array($obj, $action), $args);
     }else die('Action Not Found !');
 
-}else die('Controller Not Found !');
+}else die('Controller Not Found ! 2');
