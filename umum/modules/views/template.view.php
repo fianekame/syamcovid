@@ -19,8 +19,8 @@ $page = $temp[1];
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
   </head>
     <body class="sb-nav-fixed">
-      <a href="<?php echo PATH; ?>admin" accesskey="1"></a>
-      <a href="<?php echo PATH; ?>admin" accesskey="2"></a>
+      <a href="http://192.168.1.2/syamcovid/admin" accesskey="1"></a>
+      <a href="http://192.168.1.2/syamcovid/ruang" accesskey="2"></a>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="">Data Covid-19</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
