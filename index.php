@@ -1,4 +1,4 @@
 <?php
-header("Location: http://192.168.1.2/syamcovid/umum");
+header("Location: umum/");
 exit(0);
 ?>

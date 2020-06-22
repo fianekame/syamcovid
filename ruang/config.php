@@ -1,7 +1,8 @@
 <?php
 $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
-define('PATH', 'http://192.168.1.2/syamcovid/ruang/');
-define('SITE_URL', PATH . 'index.php');
+// define('PATH', 'http://192.168.1.2/syamcovid/ruang/');
+define('PATH', 'index.php');
+define('SITE_URL', 'index.php');
 define('POSITION_URL', PATH . '?page=' . $page);
 define('DB_HOST', '192.168.1.3');
 define('DB_USERNAME', 'syamrabu');

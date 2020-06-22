@@ -15,7 +15,7 @@ class MainController extends Controller
     {
         $this->login = isset($_SESSION["login"]) ? $_SESSION["login"] : '';
         if (!$this->login || $_SESSION["tipe"]!="0") {
-            $this->redirect(SITE_URL . "?page=main-login");
+            $this->redirect(PATH . "?page=main-login");
         }
     }
 
