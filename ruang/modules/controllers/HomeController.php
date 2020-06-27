@@ -15,6 +15,7 @@ class HomeController extends MainController {
       COUNT( CASE WHEN statusakhir = 'PDP' THEN 1 END ) AS pdp,
       COUNT( CASE WHEN statusakhir = 'OTG' THEN 1 END ) AS otg,
       COUNT( CASE WHEN statusakhir = 'CONFIRM' THEN 1 END ) AS confirm FROM data_pasien where slug = '".$slug."'";
+      // echo $coutnya;
       $datacount = $this->pasien->customSql($coutnya);
 
       $bigdata = array();

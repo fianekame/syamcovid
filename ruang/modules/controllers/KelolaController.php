@@ -100,6 +100,12 @@ class KelolaController extends MainController {
             if ($hasilswab == "Positif" || $hasilswab == "Negatif") {
               $hasillain = $hasilswab;
             }
+
+            if ($rapid == "0") {
+              $hasilrapid = "-";
+            }
+
+
             if (empty($id)) {
               if(count($error) == 0) {
                   if ($krs) {
@@ -196,7 +202,7 @@ class KelolaController extends MainController {
               }
             }
         }
-        // $this->back();
+        $this->back();
     }
 
     public function update()

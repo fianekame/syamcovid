@@ -92,9 +92,15 @@ class KelolaController extends MainController {
               }
             }
 
-            if ($hasilswab == "Positif" || $hasilswab == "Negatif") {
+            if ($hasilswab == "Positif" || $hasilswab == "Negatif" || $hasilswab == "-" || $hasilswab == "Menunggu") {
               $hasillain = $hasilswab;
             }
+
+            if ($rapid == "0") {
+              $hasilrapid = "-";
+            }
+
+
             if (empty($id)) {
               if(count($error) == 0) {
                   if ($krs) {

@@ -119,7 +119,7 @@ class Database{
           }
         }
 
-        echo $this->sql;
+        // echo $this->sql;
         return $this->execute();
 
     }
@@ -153,7 +153,7 @@ class Database{
             }
 
         }
-        echo $this->sql;
+        // echo $this->sql;
         return $this->execute();
 
     }

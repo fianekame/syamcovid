@@ -67,13 +67,16 @@ class LaporanController extends MainController {
           COUNT( CASE WHEN statusrawat = 'MENINGGAL' THEN 1 END ) AS meninggal FROM data_pasien WHERE mrs BETWEEN '".$dari."' and '".$sampai."'";
           $rawatcount = $this->pasien->customSql($rawat);
 
-          $kon = "SELECT COUNT( CASE WHEN hasilswab = '-' THEN 1 END ) AS belum,
+          $kon = "SELECT COUNT( CASE WHEN hasilswab = 'Lainnya' THEN 1 END ) AS belum,
+          COUNT( CASE WHEN hasilswab = 'Menunggu' THEN 1 END ) AS meng,
+          COUNT( CASE WHEN hasilswab = '-' THEN 1 END ) AS tidak,
           COUNT( CASE WHEN hasilswab = 'Negatif' THEN 1 END ) AS neg,
           COUNT( CASE WHEN hasilswab = 'Positif' THEN 1 END ) AS pos FROM data_pasien WHERE mrs BETWEEN '".$dari."' and '".$sampai."'";
           $konfirmasi = $this->pasien->customSql($kon);
 
           $hrapid = "SELECT COUNT( CASE WHEN hasilrapid = 'Non-Reaktif' THEN 1 END ) AS nonreak,
           COUNT( CASE WHEN hasilrapid = 'Reaktif' THEN 1 END ) AS reak,
+          COUNT( CASE WHEN hasilrapid = '-' THEN 1 END ) AS blm,
           COUNT( CASE WHEN hasilrapid = 'Menunggu' THEN 1 END ) AS tunggu,
           COUNT( CASE WHEN rapidtes = '0' THEN 1 END ) AS tidakrapid,
           COUNT( CASE WHEN rapidtes = '1' THEN 1 END ) AS rapid FROM data_pasien WHERE mrs BETWEEN '".$dari."' and '".$sampai."'";
@@ -81,6 +84,8 @@ class LaporanController extends MainController {
 
           $hswab = "SELECT COUNT( CASE WHEN hasilswab = 'Negatif' THEN 1 END ) AS neg,
           COUNT( CASE WHEN hasilswab = 'Positif' THEN 1 END ) AS pos,
+          COUNT( CASE WHEN hasilswab = 'Menunggu' THEN 1 END ) AS meng,
+          COUNT( CASE WHEN hasilswab = '-' THEN 1 END ) AS tidak,
           COUNT( CASE WHEN hasilswab = 'Lainnya' THEN 1 END ) AS lain FROM data_pasien WHERE mrs BETWEEN '".$dari."' and '".$sampai."'";
           $hasilswab = $this->pasien->customSql($hswab);
 

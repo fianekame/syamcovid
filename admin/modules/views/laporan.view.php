@@ -76,7 +76,7 @@
 <div class="row">
   <div class="col-lg-4">
     <div class="card mb-4">
-        <div class="card-header"><i class="fas fa-chart-area mr-1"></i>Status Pasien </div>
+        <div class="card-header"><i class="fas fa-chart-area mr-1"></i>Hasil Swab Pasien </div>
         <div class="card-body">
           <div id="chartContainer" style="height: 300px; width: 100%;"></div>
         </div>
@@ -92,7 +92,7 @@
   </div>
   <div class="col-lg-4">
     <div class="card mb-4">
-        <div class="card-header"><i class="fas fa-chart-area mr-1"></i>Hasil Swab Pasien</div>
+        <div class="card-header"><i class="fas fa-chart-area mr-1"></i>Status Pasien</div>
         <div class="card-body">
           <div id="chartContainerswab" style="height: 300px; width: 100%;"></div>
         </div>
@@ -232,7 +232,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	theme: "light1", // "light1", "light2", "dark1", "dark2"
 	title:{
-		text: "Status Pasien Covid 19"
+		text: "Hasil Pasien"
 	},
 	axisY: {
 		title: "Jumlah Pasien(Orang)"
@@ -240,10 +240,11 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	data: [{
 		type: "column",
 		dataPoints: [
-			{ y: parseInt(konf.belum), label: "Belum Diketahui" },
-			{ y: parseInt(konf.pos),  label: "Positif" },
-      { y: parseInt(konf.neg),  label: "Negatif" }
-
+      { y: parseInt(konf.neg),  label: "Negatif" },
+      { y: parseInt(konf.pos),  label: "Positif" },
+      { y: parseInt(konf.belum), label: "Lainnya" },
+      { y: parseInt(konf.meng), label: "Menunggu" },
+			{ y: parseInt(konf.tidak), label: "Tidak Swab" }
 		]
 	}]
 });
@@ -275,7 +276,7 @@ var chart = new CanvasJS.Chart("chartContainerrapid", {
 	animationEnabled: true,
 	theme: "light1", // "light1", "light2", "dark1", "dark2"
 	title:{
-		text: "Hasil Rapid "+hasilrapid.rapid+ " (Orang)"
+		text: "Hasil Rapid"
 	},
 	axisY: {
 		title: "Jumlah Pasien(Orang)"
@@ -284,8 +285,9 @@ var chart = new CanvasJS.Chart("chartContainerrapid", {
 		type: "column",
 		dataPoints: [
       { y: parseInt(hasilrapid.tunggu),  label: "Menunggu Hasil" },
+      { y: parseInt(hasilrapid.reak), label: "Reaktif" },
       { y: parseInt(hasilrapid.nonreak),  label: "Non-Reaktif" },
-			{ y: parseInt(hasilrapid.reak), label: "Reaktif" }
+      { y: parseInt(hasilrapid.blm),  label: "Tidak Rapid" }
 
 		]
 	}]
@@ -296,7 +298,7 @@ var chart = new CanvasJS.Chart("chartContainerswab", {
 	animationEnabled: true,
 	theme: "light1", // "light1", "light2", "dark1", "dark2"
 	title:{
-		text: "Hasil Swab"
+		text: "Status Pasien"
 	},
 	axisY: {
 		title: "Jumlah Pasien(Orang)"
@@ -304,9 +306,10 @@ var chart = new CanvasJS.Chart("chartContainerswab", {
 	data: [{
 		type: "column",
 		dataPoints: [
-      { y: parseInt(hasilswab.lain),  label: "Lainnnya" },
-      { y: parseInt(hasilswab.neg),  label: "Negatif" },
-			{ y: parseInt(hasilswab.pos), label: "Positif" }
+      { y: parseInt(hasilswab.lain)+parseInt(hasilswab.meng)+parseInt(hasilswab.tidak),  label: "Lainnnya" },
+			{ y: parseInt(hasilswab.pos), label: "Positif" },
+      { y: parseInt(hasilswab.neg),  label: "Negatif" }
+
 
 		]
 	}]

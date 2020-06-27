@@ -6,12 +6,14 @@ class HomeController extends MainController {
 
     public function index() {
       $this->model('pasien');
-      $datapasien = $this->pasien->get();
+      $datapasien = $this->pasien->getWhere(array(
+          'statusrawat' => 'RAWAT'
+      ));
       $coutnya = "SELECT COUNT( CASE WHEN statusakhir = 'ODR' THEN 1 END ) AS odr,
       COUNT( CASE WHEN statusakhir = 'ODP' THEN 1 END ) AS odp,
       COUNT( CASE WHEN statusakhir = 'PDP' THEN 1 END ) AS pdp,
       COUNT( CASE WHEN statusakhir = 'OTG' THEN 1 END ) AS otg,
-      COUNT( CASE WHEN statusakhir = 'CONFIRM' THEN 1 END ) AS confirm FROM data_pasien";
+      COUNT( CASE WHEN statusakhir = 'CONFIRM' THEN 1 END ) AS confirm FROM data_pasien where statusrawat = 'RAWAT' ";
       $datacount = $this->pasien->customSql($coutnya);
 
       $bigdata = array();

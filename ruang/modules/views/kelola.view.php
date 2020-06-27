@@ -206,7 +206,7 @@ echo $age;
             <div class="col-md-3">
               <div class="form-group">
                 <label class="form-control-label" for="validationDefault02">Hasil Rapid</label>
-                <select class="form-control" name="hasilrapid" id="hasilrapid" disabled>
+                <select class="form-control" name="hasilrapid" id="hasilrapid">
                   <option value="-">Tidak Ada Hasil</option>
                   <option value="Menunggu">Menunggu</option>
                   <option value="Reaktif">Reaktif</option>
@@ -246,6 +246,8 @@ echo $age;
               <div class="form-group">
                 <label class="form-control-label" for="validationDefault02">Hasil Swab</label>
                 <select class="form-control" onchange="getSwab(this)" name="hasilswab" id="hasilswab">
+                  <option value="-">Tidak Ada Hasil</option>
+                  <option value="Menunggu">Menunggu</option>
                   <option value="Negatif">Negatif</option>
                   <option value="Positif">Positif</option>
                   <option value="Lainnya">Lainnya</option>
@@ -255,7 +257,7 @@ echo $age;
             <div class="col-md-3">
               <div class="form-group">
                 <label class="form-control-label" for="validationDefault02">Keterangan Lain</label>
-                <input type="text" name="hasillain" id="hasillain" class="form-control" placeholder="" disabled>
+                <input type="text" name="hasillain" id="hasillain" class="form-control" placeholder="">
               </div>
             </div>
           </div>
@@ -369,8 +371,11 @@ echo $age;
       var value = selectObject.value;
       if (value=="Lainnya") {
         document.getElementById("hasillain").disabled = false;
+        document.getElementById("hasillain").value = "";
+
       }else{
         document.getElementById("hasillain").disabled = true;
+        document.getElementById("hasillain").value = value;
       }
     }
 
@@ -386,6 +391,7 @@ echo $age;
             if (typeof rowdata !== 'undefined') {
 
               var data = rowdata.split("/");
+              console.log(data);
               document.getElementById('onlyadd').hidden = true;
               document.getElementById('id').value= data[0];
               document.getElementById('nrm').value=data[1];
@@ -404,6 +410,12 @@ echo $age;
               document.getElementById('sputum').value= data[14];
               document.getElementById('hasilswab').value= data[15];
               document.getElementById('hasillain').value= data[16];
+              // document.getElementById("hasillain").disabled = true;
+
+              if (data[10]=="0") {
+                document.getElementById("hasilrapid").disabled = true;
+              }
+
             }else{
               document.getElementById("myForm").reset();
               document.getElementById('onlyadd').hidden = false;

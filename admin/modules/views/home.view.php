@@ -60,14 +60,7 @@
     </div>
 </div>
 <div class="row">
-  <div class="col-lg-12">
-    <div class="card mb-4">
-      <div class="card-header"><i class="fas fa-chart-area mr-1"></i>Perkembangan <?php echo $data["periode"]; ?></div>
-      <div class="card-body">
-        <div id="chartContainer4" style="height: 400px; width: 100%;"></div>
-      </div>
-    </div>
-  </div>
+
   <div class="col-lg-12">
     <div class="card mb-4">
         <div class="card-header"><i class="fas fa-table mr-1"></i>Data Pasien Covid 19</div>
@@ -79,7 +72,10 @@
                         <th>NRM</th>
                         <th>NAMA</th>
                         <th>MRS</th>
-                        <th>STATUS</th>
+                        <th>STATUS AWAL</th>
+                        <th>STATUS AKHIR </th>
+                        <th>HASIL RAPID</th>
+                        <th>HASIL SWAB</th>
                         <th>RUANG</th>
                         <th>RAWAT</th>
                       </tr>
@@ -89,7 +85,10 @@
                         <th>NRM</th>
                         <th>NAMA</th>
                         <th>MRS</th>
-                        <th>STATUS</th>
+                        <th>STATUS AWAL</th>
+                        <th>STATUS AKHIR </th>
+                        <th>HASIL RAPID</th>
+                        <th>HASIL SWAB</th>
                         <th>RUANG</th>
                         <th>RAWAT</th>
                       </tr>
@@ -111,7 +110,16 @@
                           <?php echo tanggal_indo($pasien->mrs); ?>
                         </td>
                         <td>
+                          <?php echo $pasien->statusawal; ?>
+                        </td>
+                        <td>
                           <?php echo $pasien->statusakhir; ?>
+                        </td>
+                        <td>
+                          <?php echo $pasien->hasilrapid; ?>
+                        </td>
+                        <td>
+                          <?php echo $pasien->hasilswab; ?>
                         </td>
                         <td>
                           <?php echo $pasien->ruang; ?>
@@ -127,6 +135,16 @@
         </div>
     </div>
   </div>
+
+  <div class="col-lg-12">
+    <div class="card mb-4">
+      <div class="card-header"><i class="fas fa-chart-area mr-1"></i>Perkembangan <?php echo $data["periode"]; ?></div>
+      <div class="card-body">
+        <div id="chartContainer4" style="height: 400px; width: 100%;"></div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script>

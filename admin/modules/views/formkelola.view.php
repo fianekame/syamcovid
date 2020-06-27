@@ -50,7 +50,7 @@
                   <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama" required>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <div class="form-group">
                   <label class="form-control-label" for="validationDefault01">NIK</label>
                   <input type="text" name="nik" id="nik" class="form-control">
@@ -62,7 +62,7 @@
                   <input type="date" name="ttl" id="ttl" class="form-control">
                 </div>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-6">
                 <div class="form-group">
                   <label class="form-control-label" for="validationDefault02">Jenis Kelamin</label>
                   <select class="form-control" name="jk" id="jk">
@@ -71,7 +71,7 @@
                   </select>
                 </div>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-6">
                 <div class="form-group">
                   <label class="form-control-label" for="validationDefault01">Umur</label>
                   <input type="text" name="umur" id="umur" class="form-control">
@@ -136,7 +136,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label class="form-control-label" for="validationDefault02">Gejala Klinis Dan Penyakit Penyerta</label>
-                  <textarea class="form-control" name="ketgejala" id="ketgejala" rows="3"></textarea>
+                  <textarea class="form-control" name="ketgejala" id="ketgejala" rows="5"></textarea>
                 </div>
               </div>
 
@@ -239,6 +239,8 @@
                 <div class="form-group">
                   <label class="form-control-label" for="validationDefault02">Hasil Swab</label>
                   <select class="form-control" onchange="getSwab(this)" name="hasilswab" id="hasilswab">
+                    <option value="-">Tidak Ada Hasil</option>
+                    <option value="Menunggu">Menunggu</option>
                     <option value="Negatif">Negatif</option>
                     <option value="Positif">Positif</option>
                     <option value="Lainnya">Lainnya</option>
@@ -248,7 +250,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label class="form-control-label" for="validationDefault02">Keterangan Lain</label>
-                  <input type="text" name="hasillain" id="hasillain" class="form-control" placeholder="" disabled>
+                  <input type="text" name="hasillain" id="hasillain" class="form-control" placeholder="">
                 </div>
               </div>
               <div class="col-md-12">
@@ -310,8 +312,11 @@
       var value = selectObject.value;
       if (value=="Lainnya") {
         document.getElementById("hasillain").disabled = false;
+        document.getElementById("hasillain").value = "";
+
       }else{
         document.getElementById("hasillain").disabled = true;
+        document.getElementById("hasillain").value = value;
       }
     }
 
@@ -351,11 +356,8 @@
     document.getElementById('diagakhir').value= datanya.diagakhir;
     document.getElementById('pemakaman').value= datanya.pemakaman;
 
-    if (datanya.hasilswab == "Lainnya") {
-      document.getElementById("hasillain").disabled = false;
-    }else{
-      document.getElementById("hasillain").value = " ";
-    }
+    document.getElementById("hasillain").disabled = true;
+
 
 
     if (datanya.rapidtes == "1") {

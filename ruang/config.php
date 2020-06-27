@@ -7,6 +7,11 @@ define('POSITION_URL', PATH . '?page=' . $page);
 define('DB_HOST', '192.168.1.3');
 define('DB_USERNAME', 'syamrabu');
 define('DB_PASSWORD', 'syamrabu');
+
+// define('DB_HOST', 'localhost');
+// define('DB_USERNAME', 'fianroot');
+// define('DB_PASSWORD', '');
+
 define('DB_NAME', 'syam_covid');
 define('DB_NAME_2', 'syamrabu');
 
