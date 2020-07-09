@@ -50,6 +50,10 @@ $page = $temp[1];
                               <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Laporan Tiap Ruangan
                             </a>
+                            <a class="nav-link" href="<?php echo PATH; ?>?page=main-cetaklaporan">
+                              <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Cetak Laporan
+                            </a>
                             <a class="nav-link" href="<?php echo PATH; ?>?page=main-kelola">
                               <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Kelola Data Pasien

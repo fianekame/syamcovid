@@ -260,6 +260,8 @@
                     <option value="-">Non Keterangan</option>
                     <option value="RAWAT">RAWAT</option>
                     <option value="PULANG PAKSA">PULANG PAKSA</option>
+                    <option value="ALIH RAWAT">ALIH RAWAT</option>
+                    <option value="DIRUJUK">DIRUJUK</option>
                     <option value="SEMBUH">SEMBUH</option>
                     <option value="MENINGGAL">MENINGGAL</option>
                   </select>
